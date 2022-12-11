@@ -32,6 +32,20 @@ The end of the example above is checked using the ```$,``` and checks that the p
 
 ### Quantifiers
 
+Quantifiers stipulates how many instances of a character, group, or character class must be present in the line for a match to be identified.
+
+At a default, regex is greedy. It will match as many instances in a line as possible and the greedy part is essential in the match.
+
+When lazy, regex will match as few instances as possible. This can be zero or more; for example if the next part of the current regex search matches, then the lazy part isn't essential.
+
+Possessive regex will take a character it matches, and the character cannot be matched in the next part of the search.
+
+Generally speaking, a quantifier tells the regex engine to match a specified quantity of the character, token or sub-expression immediately to its left. For instance:
+
+-   ```[a-z]+``` => the ```+``` applies to the character selected in the ```[]```
+-   ```[.*]``` => the ```*``` applies to the ```.```
+-   given the statement ```test?``` => the ```?``` applies to ```t```, or the last character.
+
 ### OR Operator
 
 ### Character Classes
