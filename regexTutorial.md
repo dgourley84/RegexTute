@@ -23,6 +23,12 @@ Today I will be covering and breaking down the components of a regular expressio
 ## Regex Components
 
 ### Anchors
+In regular expressions, we use anchors to check if the matching symbol is the starting symbol or ending symbol of the input string. Anchors are of two types: The first type is the caret ^ that checks if the matching character is the first character of the input and the second type is the dollar sign $ which checks if a matching character is the last character of the input string.
+
+In the example above, the string should start with ```<``` to signify the opening of an HTML tag, ```^<```.
+
+The end of the example above is checked using the ```$,``` and checks that the preceding character is correct, ```>$```
+
 
 ### Quantifiers
 
