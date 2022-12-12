@@ -52,6 +52,16 @@ The next component we will be discussing is the "or" operator. The "or" operator
 
 ### Character Classes
 
+Character class matches any one of the enclosed characters. You can specify a range of characters by using a hyphen, but if the hyphen appears as the first or last character enclosed in the square brackets it is taken as a literal hyphen to be included in the character class as a normal character.
+
+In the following example:
+```/^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/```
+
+the character class is
+
+```[a-z]```
+which selects any character between a and z.
+
 ### Flags
 
 ### Grouping and Capturing
