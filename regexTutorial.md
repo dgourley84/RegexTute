@@ -25,7 +25,7 @@ Today I will be covering and breaking down the components of a regular expressio
 ### Anchors
 In regular expressions, we use anchors to check if the matching symbol is the starting symbol or ending symbol of the input string. Anchors are of two types: The first type is the caret ^ that checks if the matching character is the first character of the input and the second type is the dollar sign $ which checks if a matching character is the last character of the input string.
 
-In the example above, the string should start with ```<``` to signify the opening of an HTML tag, ```^<```.
+In the following example of a HTML tag ```/^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/``` the string should start with ```<``` to signify the opening of an HTML tag, ```^<```.
 
 The end of the example above is checked using the ```$,``` and checks that the preceding character is correct, ```>$```
 
@@ -34,11 +34,11 @@ The end of the example above is checked using the ```$,``` and checks that the p
 
 Quantifiers stipulates how many instances of a character, group, or character class must be present in the line for a match to be identified.
 
-At a default, regex is greedy. It will match as many instances in a line as possible and the greedy part is essential in the match.
+- At a default, regex is greedy. It will match as many instances in a line as possible and the greedy part is essential in the match.
 
-When lazy, regex will match as few instances as possible. This can be zero or more; for example if the next part of the current regex search matches, then the lazy part isn't essential.
+- When lazy, regex will match as few instances as possible. This can be zero or more; for example if the next part of the current regex search matches, then the lazy part isn't essential.
 
-Possessive regex will take a character it matches, and the character cannot be matched in the next part of the search.
+- Possessive regex will take a character it matches, and the character cannot be matched in the next part of the search.
 
 Generally speaking, a quantifier tells the regex engine to match a specified quantity of the character, token or sub-expression immediately to its left. For instance:
 
@@ -48,7 +48,11 @@ Generally speaking, a quantifier tells the regex engine to match a specified qua
 
 ### OR Operator
 
-The next component we will be discussing is the "or" operator. The "or" operator within a regular expression is defined using the ```|``` element. The or operator indicates that it could either of the components that we are separating with the ```|```. If our hex value regular expression is ([a-f0-9]{6}```|```[a-f0-9]{3}) then the or operator is separating these 2 components. This means that our hex value could either be 6 characters [a-f0-9]{6} or 3 characters [a-f0-9]{3}.
+The next component we will be discussing is the "or" operator. The "or" operator within a regular expression is defined using the ```|``` element. The or operator indicates that it could either of the components that we are separating with the ```|```. 
+
+In the following example ```/^#?([a-f0-9]{6}|[a-f0-9]{3})$/```
+
+If our hex value regular expression is ([a-f0-9]{6}```|```[a-f0-9]{3}) then the or operator is separating these 2 components. This means that our hex value could either be 6 characters [a-f0-9]{6} or 3 characters [a-f0-9]{3}.
 
 ### Character Classes
 
@@ -64,18 +68,43 @@ which selects any character between a and z.
 
 ### Flags
 
+When writing Regex the search parameters are delimeted by two slash characters ```/.../``` . At the end i.e. after the second slash character is where we specify theflags.
+
+```g``` (global) It allows for the search to continue after the first match and to continue until no more matches can be found.
+
 ### Grouping and Capturing
+
+
 
 ### Bracket Expressions
 
+
+
+
 ### Greedy and Lazy Match
+
+
+
 
 ### Boundaries
 
+
+
+
 ### Back-references
+
+
+
 
 ### Look-ahead and Look-behind
 
+
+
+
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Dallas Gourley is a finance professional with an interest in coding and how it can be used to automate reporting and other systems within finance space.
+
+GitHub Username: dgourley84
+
+
