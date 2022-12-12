@@ -3,8 +3,20 @@
 This Regex (Regular Expression) tutorial is created to help you understand and define the sequence of special characters to verify a search term. A Regex is a sequence of characters that defines a specific search pattern. When included in code or search algorithms, regular expressions can be used to find certain patterns of characters within a string, or to find and replace a character or sequence of characters within a string. They are also used frequently to validate input data.
 
 ## Summary
+Today I will be covering multiple types of regular expressions. They are as follows:
 
-Today I will be covering and breaking down the components of a regular expression used to match Hex Values. Hex values are commonly used for color using the hexadecimal color code format. In the web we can use hex triplet (hex color code) to represent colors on a web page. For the hex color code, there are two formats, a standard hex triplet and a shorthand hex format, where both formats start with a #./^#?([a-f0-9]{6}|[a-f0-9]{3})$/
+- Components of a regular expression used to match Hex Values. Hex values are commonly used for color using the hexadecimal color code format. In the web we can use hex triplet (hex color code) to represent colors on a web page. For the hex color code, there are two formats, a standard hex triplet and a shorthand hex format, where both formats start with a 
+```
+#./^#?([a-f0-9]{6}|[a-f0-9]{3})$/
+```
+- The following is an example of a regular expression that mathces an HTML tag 
+```
+/^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/
+```
+- Email regular expression with the following: 
+```
+/\b([a-z])([\w\.]+)([^\W_]+)@([\da-z\.-]+)\.([a-z\.]{1,3})\b/g
+```
 
 ## Table of Contents
 
@@ -25,9 +37,27 @@ Today I will be covering and breaking down the components of a regular expressio
 ### Anchors
 In regular expressions, we use anchors to check if the matching symbol is the starting symbol or ending symbol of the input string. Anchors are of two types: The first type is the caret ^ that checks if the matching character is the first character of the input and the second type is the dollar sign $ which checks if a matching character is the last character of the input string.
 
-In the following example of a HTML tag ```/^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/``` the string should start with ```<``` to signify the opening of an HTML tag, ```^<```.
+In the our example of a HTML tag 
+```
+/^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/
+``` 
+the string should start with 
+```
+<
+``` 
+to signify the opening of an HTML tag, 
+```
+^<
+```
 
-The end of the example above is checked using the ```$,``` and checks that the preceding character is correct, ```>$```
+The end of the example above is checked using the 
+```
+$
+```
+ and checks that the preceding character is correct, 
+```
+>$
+```
 
 
 ### Quantifiers
@@ -48,57 +78,96 @@ Generally speaking, a quantifier tells the regex engine to match a specified qua
 
 ### OR Operator
 
-The next component we will be discussing is the "or" operator. The "or" operator within a regular expression is defined using the ```|``` element. The or operator indicates that it could either of the components that we are separating with the ```|```. 
+The next component we will be discussing is the "or" operator. The "or" operator within a regular expression is defined using the 
 
-In the following example ```/^#?([a-f0-9]{6}|[a-f0-9]{3})$/```
+```
+|
+```
+ element. The or operator indicates that it could either of the components that we are separating with the 
+```
+|
+```
 
-If our hex value regular expression is ([a-f0-9]{6}```|```[a-f0-9]{3}) then the or operator is separating these 2 components. This means that our hex value could either be 6 characters [a-f0-9]{6} or 3 characters [a-f0-9]{3}.
+In the following example 
+```
+/^#?([a-f0-9]{6}|[a-f0-9]{3})$/
+```
+
+If our hex value regular expression is 
+([a-f0-9]{6}
+```|```
+[a-f0-9]{3}) 
+then the or operator is separating these 2 components. This means that our hex value could either be 6 characters [a-f0-9]{6} or 3 characters [a-f0-9]{3}.
 
 ### Character Classes
 
 Character class matches any one of the enclosed characters. You can specify a range of characters by using a hyphen, but if the hyphen appears as the first or last character enclosed in the square brackets it is taken as a literal hyphen to be included in the character class as a normal character.
 
 In the following example:
-```/^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/```
+```
+/^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$/
+```
 
 the character class is
 
-```[a-z]```
+```
+[a-z]
+```
 which selects any character between a and z.
 
 ### Flags
 
-When writing Regex the search parameters are delimeted by two slash characters ```/.../``` . At the end i.e. after the second slash character is where we specify theflags.
+When writing Regex the search parameters are delimeted by two slash characters 
+```
+/.../
+``` 
+At the end i.e. after the second slash character is where we specify theflags.
 
-```g``` (global) It allows for the search to continue after the first match and to continue until no more matches can be found.
+```
+g
+``` 
+(global) It allows for the search to continue after the first match and to continue until no more matches can be found.
 
 ### Grouping and Capturing
 
-
-
-### Bracket Expressions
-
+```
+()
+```  
+Captures everything enclosed within the parenthesis. It isolates part of the full match and assignes it an ID to be later referred to within the regex.
 
 
 
 ### Greedy and Lazy Match
 
-
+In this section we will discuss greedy and lazy matches. A greedy match tries to match an element as many times as possible. Whereas, a lazy match tries to match an element as few times as possible. In our example of  
+```
+/^#?([a-f0-9]{6}|[a-f0-9]{3})$/
+``` 
+we have 
+```
+?
+``` 
+which signifies lazy quantifier. This is referred to a lazy quantifier because it causes the regular expression engine to match as few occurances as possible. We can simply turn this lazy match into a greedy one by adding a 
+```
+?
+```
 
 
 ### Boundaries
 
-
-
-
-### Back-references
-
-
-
-
-### Look-ahead and Look-behind
-
-
+In our our example of email regex: 
+```
+/\b([a-z])([\w\.]+)([^\W_]+)@([\da-z\.-]+)\.([a-z\.]{1,3})\b/g
+```
+the
+```
+\b
+```
+matches on a word boundary , meaning one side is a word charcter (like 
+```
+\w
+```
+) amd the other side is not a word charcter (like a space character).
 
 
 ## Author
